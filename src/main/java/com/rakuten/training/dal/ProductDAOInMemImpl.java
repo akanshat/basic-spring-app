@@ -1,14 +1,16 @@
 package com.rakuten.training.dal;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.springframework.stereotype.Repository;
+
 import com.rakuten.training.domain.Product;
 
+@Repository
 public class ProductDAOInMemImpl implements ProductDAO {
 
 	// why is this not static?, for each new object we need it to create a new

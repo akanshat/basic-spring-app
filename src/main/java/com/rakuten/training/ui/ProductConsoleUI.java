@@ -16,6 +16,9 @@ public class ProductConsoleUI {
 
 	public void createProductWithUI() {
 		try (Scanner kb = new Scanner(System.in)) {
+			// Scanner is thread safe or not that doesnt matter, but System.in is thread
+			// safe
+			// each thread gets its own copy of scanner
 			System.out.println("Enter a name: ");
 			String name = kb.nextLine();
 			System.out.println("Enter a price: ");

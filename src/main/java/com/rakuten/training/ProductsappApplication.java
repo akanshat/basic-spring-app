@@ -8,6 +8,7 @@ import com.rakuten.training.ui.ProductConsoleUI;
 
 @SpringBootApplication
 public class ProductsappApplication {
+	// shows SPRING for dependency injection DI
 
 	public static void main(String[] args) {
 		ApplicationContext springContainer = SpringApplication.run(ProductsappApplication.class, args);

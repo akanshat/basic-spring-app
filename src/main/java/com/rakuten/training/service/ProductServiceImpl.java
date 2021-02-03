@@ -6,7 +6,8 @@ import com.rakuten.training.dal.ProductDAO;
 import com.rakuten.training.domain.Product;
 
 public class ProductServiceImpl implements ProductService {
-
+	// ProductServiceImpl is thread safe, provided this dao obj is thread safe
+	// dao isnt thread safe now
 	ProductDAO dao; // null now
 	// = new ProductDAOInMemImpl();
 

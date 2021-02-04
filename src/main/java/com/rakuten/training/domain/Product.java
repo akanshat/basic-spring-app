@@ -1,12 +1,26 @@
 package com.rakuten.training.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "product")
 public class Product {
-	
-	// these are NOT PROPERTIES, THESE are fields
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "product_id")
 	int id;
+	@Column(name = "product_name")
 	String name;
+	@Column(name = "product_price")
 	float price;
-	int qoh; // quantity on hand
+	@Column(name = "product_qoh")
+	int qoh;
 
 	public Product() {
 
@@ -49,7 +63,5 @@ public class Product {
 	public void setQoh(int qoh) {
 		this.qoh = qoh;
 	}
-	
-	
 
 }

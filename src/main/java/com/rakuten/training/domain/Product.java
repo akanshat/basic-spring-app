@@ -1,7 +1,12 @@
 package com.rakuten.training.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "product")
 public class Product {
-	
+
 	// these are NOT PROPERTIES, THESE are fields
 	int id;
 	String name;
@@ -49,7 +54,5 @@ public class Product {
 	public void setQoh(int qoh) {
 		this.qoh = qoh;
 	}
-	
-	
 
 }

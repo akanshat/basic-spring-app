@@ -8,13 +8,13 @@ import org.springframework.stereotype.Component;
 import com.rakuten.training.domain.Product;
 import com.rakuten.training.service.ProductService;
 
-@Component
+//@Component
 public class ProductConsoleUI {
 	ProductService service;
 
 	// = new ProductServiceImpl();
 	// make this "ProductService service" injectible
-	@Autowired
+//	@Autowired
 	public void setService(ProductService service) {
 		this.service = service;
 	}

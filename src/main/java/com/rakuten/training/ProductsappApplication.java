@@ -4,7 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-import com.rakuten.training.ui.ProductConsoleUI;
+import com.rakuten.training.domain.Review;
+import com.rakuten.training.service.ReviewService;
 
 @SpringBootApplication
 public class ProductsappApplication {
@@ -25,14 +26,25 @@ public class ProductsappApplication {
 
 		// this was not object created by spring container
 		// so->
-		ProductConsoleUI ui = springContainer.getBean(ProductConsoleUI.class);
+//		ProductConsoleUI ui = springContainer.getBean(ProductConsoleUI.class);
 		// short answer: argument type of get bean is arg type of class, syntax for
 		// representing a class
 		// long answer: in java, there is a Class called Class, every class or interface
 		// loaded into memory, is internally represented by jvm as an object of type
 		// class, this is called Reflection API
 		// literal way of creating an obj of Class is, .class(dotclass)
-		ui.createProductWithUI();
+//		ui.createProductWithUI();
+
+		testReviewAssociation(springContainer);
+	}
+
+	private static void testReviewAssociation(ApplicationContext springContainer) {
+		Review aReview = new Review("self", "very good", 5);
+//		ReviewDAO dao = springContainer.getBean(ReviewDAO.class);
+//		dao.save(aReview);
+		
+		ReviewService svc = springContainer.getBean(ReviewService.class);
+		svc.addReviewToProduct(aReview, 1);
 	}
 
 }

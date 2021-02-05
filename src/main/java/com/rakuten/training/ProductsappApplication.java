@@ -1,14 +1,10 @@
 package com.rakuten.training;
 
-import java.util.Arrays;
-import java.util.List;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-import com.rakuten.training.dal.ProductRepository;
-import com.rakuten.training.domain.Product;
+import com.rakuten.training.ui.ProductConsoleUI;
 
 @SpringBootApplication
 public class ProductsappApplication {
@@ -24,8 +20,8 @@ public class ProductsappApplication {
 		// but we are creating it
 		// so it wont use those dependencies, as those dependencies are provided to
 		// Spring
-//		ProductConsoleUI ui = new ProductConsoleUI();
-//		ui.createProductWithUI();
+		ProductConsoleUI ui = new ProductConsoleUI();
+		ui.createProductWithUI();
 
 		// this was not object created by spring container
 		// so->
@@ -40,20 +36,20 @@ public class ProductsappApplication {
 
 //		testReviewAssociation(springContainer);
 
-		testSpringDataRepository(springContainer);
+//		testSpringDataRepository(springContainer);
 	}
 
-	private static void testSpringDataRepository(ApplicationContext springContainer) {
-		ProductRepository repo = springContainer.getBean(ProductRepository.class);
-		Product p = new Product("repo", 100000, 10);
-		Product saved = repo.save(p);
-//		List<Product> p1 = repo.findByNameLike("wer");
+//	private static void testSpringDataRepository(ApplicationContext springContainer) {
+//		ProductRepository repo = springContainer.getBean(ProductRepository.class);
+//		Product p = new Product("repo", 100000, 10);
+//		Product saved = repo.save(p);
+////		List<Product> p1 = repo.findByNameLike("wer");
+////		p1.forEach(pp -> System.out.println(pp.getName()));
+//
+//		List<Product> p1 = repo.findByNameStartingWith("w");
 //		p1.forEach(pp -> System.out.println(pp.getName()));
-
-		List<Product> p1 = repo.findByNameStartingWith("w");
-		p1.forEach(pp -> System.out.println(pp.getName()));
-		System.out.println("Saved a product with id: " + saved.getId());
-	}
+//		System.out.println("Saved a product with id: " + saved.getId());
+//	}
 
 //	private static void testReviewAssociation(ApplicationContext springContainer) {
 //		Review aReview = new Review("self", "very good", 5);

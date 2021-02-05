@@ -38,7 +38,10 @@ public class ProductDAOJpaImpl implements ProductDAO {
 
 	@Override
 	public void deleteById(int id) {
-
+		Product p = em.find(Product.class, id);// getting a persistent object
+		em.remove(p);
+		// after remove state of p will be -> new/transient as it doesn't represent any
+		// row and it is removed from the persistence context, (NOT detached)
 	}
 
 }

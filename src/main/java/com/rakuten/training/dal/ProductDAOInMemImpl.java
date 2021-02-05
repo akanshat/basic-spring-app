@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.rakuten.training.domain.Product;
 
-//@Repository
+@Repository
 public class ProductDAOInMemImpl implements ProductDAO {
 
 	// why is this not static?, for each new object we need it to create a new

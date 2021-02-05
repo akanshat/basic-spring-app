@@ -2,6 +2,8 @@ package com.rakuten.training.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +11,7 @@ import com.rakuten.training.dal.ProductDAO;
 import com.rakuten.training.domain.Product;
 
 @Service
+@Transactional
 public class ProductServiceImpl implements ProductService {
 	// ProductServiceImpl is thread safe, provided this dao obj is thread safe
 	// dao isnt thread safe now

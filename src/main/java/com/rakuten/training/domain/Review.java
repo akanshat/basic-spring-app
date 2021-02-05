@@ -1,5 +1,6 @@
 package com.rakuten.training.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +20,12 @@ public class Review {
 	String reviewText;
 	float rating;
 
-	@ManyToOne
+	// whatever persist operation we perform in review it will be done in product
+	// too, if we update a review the contained product will also the merged, if a
+	// new prod is added and it contains reviews, we want its reviews to be delete
+	// along with the product, therefore cascade = persist
+
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "p_id") // foreign key
 	Product product;
 

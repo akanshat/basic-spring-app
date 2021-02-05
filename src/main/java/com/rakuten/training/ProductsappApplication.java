@@ -44,7 +44,7 @@ public class ProductsappApplication {
 //		dao.save(aReview);
 		
 		ReviewService svc = springContainer.getBean(ReviewService.class);
-		svc.addReviewToProduct(aReview, 1);
+		svc.addReviewToProduct(aReview, 10);
 	}
 
 }

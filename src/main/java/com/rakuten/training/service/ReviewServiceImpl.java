@@ -37,7 +37,7 @@ public class ReviewServiceImpl implements ReviewService {
 		} else {
 			// we did this separately
 			Product newProduct = new Product("temp", 1000, 10);
-			productDAO.save(newProduct);
+//			productDAO.save(newProduct); // as we added cascade= persist in review domain
 			r.setProduct(newProduct);
 			reviewDAO.save(r);
 			return r;

@@ -2,6 +2,7 @@ package com.rakuten.training.dal;
 
 import java.util.List;
 
+import javax.persistence.Query;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
@@ -30,7 +31,12 @@ public class ReviewDAOJpaImpl implements ReviewDAO {
 
 	@Override
 	public List<Review> findByProduct_Id(int pid) {
-		return null;
+//		Query q = em.createQuery("SELECT r FROM Review r WHERE r.product.id=" + pid);
+//		return q.getResultList();
+
+		Query q = em.createQuery("SELECT r FROM Review r WHERE r.product.id=:productId");
+		q.setParameter("productId", pid);
+		return q.getResultList();
 	}
 
 }

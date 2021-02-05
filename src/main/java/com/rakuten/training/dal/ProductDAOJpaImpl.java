@@ -3,6 +3,7 @@ package com.rakuten.training.dal;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
@@ -13,7 +14,7 @@ import com.rakuten.training.domain.Product;
 
 @Primary
 @Repository
-@Transactional
+//@Transactional
 public class ProductDAOJpaImpl implements ProductDAO {
 
 	@Autowired
@@ -33,7 +34,8 @@ public class ProductDAOJpaImpl implements ProductDAO {
 
 	@Override
 	public List<Product> findAll() {
-		return null;
+		Query q = em.createQuery("select p from Product as p");
+		return q.getResultList();
 	}
 
 	@Override

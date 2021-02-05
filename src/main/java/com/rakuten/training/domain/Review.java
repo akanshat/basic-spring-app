@@ -1,6 +1,5 @@
 package com.rakuten.training.domain;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,7 +24,7 @@ public class Review {
 	// new prod is added and it contains reviews, we want its reviews to be delete
 	// along with the product, therefore cascade = persist
 
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne
 	@JoinColumn(name = "p_id") // foreign key
 	Product product;
 

@@ -11,7 +11,8 @@ public class ProductsappApplication {
 	// shows SPRING for dependency injection DI
 
 	public static void main(String[] args) {
-		ApplicationContext springContainer = SpringApplication.run(ProductsappApplication.class, args);
+//		ApplicationContext springContainer = 
+		SpringApplication.run(ProductsappApplication.class, args);
 
 		// if we comment line 11,27,28, and use only 22 and 23 lines
 		// THIS IS NOT A BEAN, as it is created by us
@@ -20,8 +21,8 @@ public class ProductsappApplication {
 		// but we are creating it
 		// so it wont use those dependencies, as those dependencies are provided to
 		// Spring
-		ProductConsoleUI ui = new ProductConsoleUI();
-		ui.createProductWithUI();
+//		ProductConsoleUI ui = new ProductConsoleUI();
+//		ui.createProductWithUI();
 
 		// this was not object created by spring container
 		// so->

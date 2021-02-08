@@ -39,4 +39,10 @@ public class ReviewDAOJpaImpl implements ReviewDAO {
 		return q.getResultList();
 	}
 
+	public void deleteByProduct_id(int pid) {
+		Query q = em.createQuery("DELETE FROM Review r WHERE r.product.id=:productId");
+		q.setParameter("productId", pid);
+		q.executeUpdate();
+	}
+
 }

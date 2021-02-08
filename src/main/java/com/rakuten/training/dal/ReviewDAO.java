@@ -9,7 +9,8 @@ public interface ReviewDAO {
 	Review save(Review r);
 
 	Review findById(int id);
-	
+
 	List<Review> findByProduct_Id(int pid);
 
+	void deleteByProduct_id(int pid);
 }

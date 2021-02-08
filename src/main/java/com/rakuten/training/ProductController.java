@@ -57,9 +57,15 @@ public class ProductController {
 	}
 
 	@DeleteMapping("/products/{idPathVariable}")
-	public void removeExisting(@PathVariable("idPathVariable") int id) {
-		reviewSvc.deleteReviewByPid(id);
-		service.removeExisting(id);
+	public ResponseEntity removeExisting(@PathVariable("idPathVariable") int id) {
+		Product p = service.findById(id);
+		if (p != null) {
+			reviewSvc.deleteReviewByPid(id);
+
+			service.removeExisting(id);
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
 }

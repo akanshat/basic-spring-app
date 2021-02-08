@@ -56,4 +56,8 @@ public class ReviewServiceImpl implements ReviewService {
 	public List<Review> findByProduct_Id(int pid) {
 		return reviewDAO.findByProduct_Id(pid);
 	}
+	
+	public void deleteReviewByPid(int pid) {
+		reviewDAO.deleteByProduct_id(pid);
+	}
 }

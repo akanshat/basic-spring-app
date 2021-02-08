@@ -12,4 +12,5 @@ public interface ReviewService {
 
 	List<Review> findByProduct_Id(int pid);
 
+	void deleteReviewByPid(int pid);
 }

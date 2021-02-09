@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.rakuten.training.dal.ProductDAO;
+import com.rakuten.training.dal.ProductDAOInMemImpl;
+import com.rakuten.training.dal.ProductDAOJpaImpl;
 import com.rakuten.training.domain.Product;
 
 @Service
@@ -17,6 +19,8 @@ public class ProductServiceImpl implements ProductService {
 	// dao isnt thread safe now
 	ProductDAO dao; // null now
 	// = new ProductDAOInMemImpl();
+
+//	private ProductDAO dao = new ProductDAOInMemImpl();
 
 	@Autowired
 	public void setDao(ProductDAO dao) {

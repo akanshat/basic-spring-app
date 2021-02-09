@@ -40,6 +40,11 @@ public class ProductDAOJpaImpl implements ProductDAO {
 
 	@Override
 	public void deleteById(int id) {
+		Query q = em.createQuery("DELETE FROM Review r where r.product.id=:pid");
+		q.setParameter("pid", id);
+		int numReviewsDeleted = q.executeUpdate();
+		System.out
+				.println("<<<<<<Deleted " + numReviewsDeleted + "reviews before deleting with id " + id + ">>>>>>>>>>");
 		Product p = em.find(Product.class, id);// getting a persistent object
 		em.remove(p);
 		// after remove state of p will be -> new/transient as it doesn't represent any

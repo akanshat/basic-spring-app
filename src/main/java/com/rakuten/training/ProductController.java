@@ -58,14 +58,16 @@ public class ProductController {
 
 	@DeleteMapping("/products/{idPathVariable}")
 	public ResponseEntity removeExisting(@PathVariable("idPathVariable") int id) {
-		Product p = service.findById(id);
-		if (p != null) {
+		try {
 			reviewSvc.deleteReviewByPid(id);
 
 			service.removeExisting(id);
 			return new ResponseEntity<>(HttpStatus.OK);
-		} else
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		} catch (IllegalStateException e) {
+			return new ResponseEntity<>(HttpStatus.CONFLICT);
+		} catch (IllegalArgumentException e) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 	}
 
 }

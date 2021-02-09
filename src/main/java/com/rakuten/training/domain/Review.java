@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "review")
 public class Review {
@@ -24,6 +26,14 @@ public class Review {
 	// new prod is added and it contains reviews, we want its reviews to be delete
 	// along with the product, therefore cascade = persist
 
+	// SRP single responsibility principle
+	// only once access of change, all persistence related stuff about Reviews is
+	// responsibility, of this class
+	// but with inclusion of @JsonIgnore, we have completely changed what it is
+	// meant to do, we added this annotation so that we don't get the same copy of
+	// the product in about a 100 review objects fetched for a particular product
+
+	@JsonIgnore // ignores product when review objects converted to json
 	@ManyToOne
 	@JoinColumn(name = "p_id") // foreign key
 	Product product;

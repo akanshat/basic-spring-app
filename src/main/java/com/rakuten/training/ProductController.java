@@ -22,6 +22,7 @@ import com.rakuten.training.service.ReviewService;
 public class ProductController {
 
 	@Autowired
+	public
 	ProductService service;
 
 	@Autowired
